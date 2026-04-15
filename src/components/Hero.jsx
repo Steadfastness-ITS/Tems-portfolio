@@ -18,7 +18,7 @@ const hero = () => {
         {/* mobile: added -translate-y-2 to move it up slightly so it touches the text above */}
         <div className="relative w-[70%] -translate-y-10 translate-y-6 md:translate-y-14 md:w-[45vw] lg:w-[55vw] translate-x-0 md:translate-x-10">
           <img 
-            src="/te.png" 
+            src="/Te.png" 
             alt="tems" 
             className="w-full h-auto object-cover drop-shadow-[0_30px_80px_rgba(0,0,0,0.15)]"
           />
