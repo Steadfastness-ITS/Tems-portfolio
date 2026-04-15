@@ -7,7 +7,7 @@ const hero = () => {
       {/* 1. background typography: centered behind subject */}
       <div className="absolute top-[25%] md:top-[15%] left-0 w-full flex items-center justify-center z-0 pointer-events-none">
         <img 
-            src="/raw soul.png" 
+            src="/Raw Soul.png" 
             alt="raw soul"
             className="w-[85vw] md:w-[90vw] max-w-full h-auto object-contain select-none opacity-100"
         />
@@ -61,7 +61,7 @@ const hero = () => {
         {/* YouTube */}
         <a href="https://youtube.com/@temsbaby" target="_blank" rel="noopener noreferrer">
             <img 
-            src="/utube.png" 
+            src="/Utube.png" 
             alt="youtube" 
             className="w-5 h-5 md:w-8 md:h-8 cursor-pointer" 
             />

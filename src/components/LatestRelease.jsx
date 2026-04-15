@@ -19,7 +19,7 @@ const LatestRelease = () => {
           {/* 3. ALBUM ART: Mathematically centered */}
           <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[520px] lg:h-[520px] bg-black overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.15)] flex-shrink-0 z-10">
             <img 
-              src="/image.png" 
+              src="/Image.png" 
               alt="Latest Release"
               className="w-full h-full object-cover"
             />

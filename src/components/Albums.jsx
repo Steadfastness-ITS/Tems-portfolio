@@ -2,9 +2,9 @@ import react from 'react';
 
 const albums = () => {
   const albums = [
-    { image: "/cover-2.png" },
-    { image: "/cover-1.png" },
-    { image: "/for broken hearts.png" }
+    { image: "/COVER-2.png" },
+    { image: "/COVER-1.png" },
+    { image: "/For Broken Hearts.png" }
   ];
 
   return (
