@@ -1,0 +1,97 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
+      scrolled ? 'py-4 bg-tems-cream/95 backdrop-blur-md shadow-sm' : 'py-8 bg-tems-cream'
+    } px-6 md:px-16`}>
+      <div className="max-w-[1800px] mx-auto flex items-center justify-between relative">
+        
+        {/* LEFT SECTION: Desktop Links & Mobile Logo Image */}
+        <div className="flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-12">
+            <a href="#songs" className="flex items-center gap-3 text-tems-brown text-[11px] font-bold tracking-[0.15em] hover:opacity-60 transition-opacity">
+              <span className="w-1.5 h-1.5 bg-tems-brown rounded-full"></span>
+              Songs
+            </a>
+            <a href="#tour" className="flex items-center gap-3 text-tems-brown text-[11px] font-bold tracking-[0.15em] hover:opacity-60 transition-opacity">
+              <span className="w-1.5 h-1.5 bg-tems-brown rounded-full"></span>
+              Tour
+            </a>
+          </div>
+          
+          {/* MOBILE LOGO (Replaces the 'Tems' text) */}
+          <div className="md:hidden">
+            <a href="/">
+              <img 
+                src="/Temslogo.png" 
+                alt="TEMS Logo" 
+                className="h-7 w-auto object-contain" 
+              />
+            </a>
+          </div>
+        </div>
+
+        {/* CENTER LOGO: Hidden on Mobile, Visible on Desktop */}
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center">
+          <a href="/">
+            <img 
+              src="/Temslogo.png" 
+              alt="TEMS Logo" 
+              className="h-12 w-auto object-contain transition-transform hover:scale-105" 
+            />
+          </a>
+        </div>
+
+        {/* RIGHT SECTION: Merch & Action Button */}
+        <div className="flex items-center gap-6 md:gap-12">
+          <a href="#merch" className="hidden md:flex items-center gap-3 text-tems-brown text-[11px] font-bold tracking-[0.15em] hover:opacity-60 transition-opacity">
+            <span className="w-1.5 h-1.5 bg-tems-brown rounded-full"></span>
+            Merch
+          </a>
+          
+          <button className="bg-tems-green text-tems-cream px-6 py-2.5 md:px-9 md:py-3.5 rounded-full text-[10px] md:text-[11px] font-bold tracking-[0.1em] shadow-lg hover:brightness-110 transition-all active:scale-95">
+            Stream What You Need
+          </button>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="md:hidden text-tems-brown p-1"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* MOBILE OVERLAY */}
+      <div className={`fixed inset-0 w-full h-screen bg-tems-cream transition-all duration-700 ease-in-out flex flex-col items-center justify-center gap-10 md:hidden z-[110] ${
+        isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+      }`}>
+        <button onClick={() => setIsOpen(false)} className="absolute top-8 right-8 text-tems-brown">
+          <X size={32} />
+        </button>
+        
+        <a href="#songs" onClick={() => setIsOpen(false)} className="text-5xl font-tems-italic text-tems-brown hover:italic">Songs</a>
+        <a href="#tour" onClick={() => setIsOpen(false)} className="text-5xl font-tems-italic text-tems-brown">Tour</a>
+        <a href="#merch" onClick={() => setIsOpen(false)} className="text-5xl font-tems-italic text-tems-brown">Merch</a>
+        
+        <div className="mt-20">
+            <img src="/Temslogo.png" alt="TEMS" className="h-12 opacity-30 grayscale" />
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

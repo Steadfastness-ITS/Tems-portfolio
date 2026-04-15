@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* 1. Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;600;700&display=swap');
+
+/* 2. Define Theme Variables (Tailwind v4 Style) */
+@theme {
+  --color-tems-cream: #F3F0E9;
+  --color-tems-green: #4A533F;
+  --color-tems-brown: #2D1B14;
+  --color-tems-orange: #C67E66;
+
+  --font-tems-italic: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* Custom Spacing / Shadow for that high-end look */
+  --shadow-tems: 0 30px 100px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-tems-cream);
+    color: var(--color-tems-brown);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* 4. Custom Utility for the Editorial Look */
+@layer utilities {
+  .font-tems-italic {
+    font-family: var(--font-tems-italic);
+    font-style: italic;
+  }
+}
