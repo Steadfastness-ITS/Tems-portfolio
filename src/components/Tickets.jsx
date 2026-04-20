@@ -11,7 +11,7 @@ const Tickets = () => {
       */}
       <div className="absolute inset-0 z-0 flex justify-center items-start overflow-hidden">
         <img 
-          src="/Tic.png" /* Replace with your actual path for Tems portrait */
+          src="/Tics.png" /* Replace with your actual path for Tems portrait */
           alt="Tems Portrait" 
           className="absolute w-full md:w-auto max-w-[100%] md:max-w-[105%] h-auto md:h-[110%] block md:hidden md:-top-[8%] object-contain brightness-[1.0]"
         />
