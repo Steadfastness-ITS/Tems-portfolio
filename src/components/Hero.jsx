@@ -45,7 +45,7 @@ const hero = () => {
             <img 
             src="/apple.png" 
             alt="apple" 
-            className="w-6 h-6 md:w-8 md:h-8 cursor-pointer" 
+            className="w-6 h-6 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" 
             />
         </a>
 
@@ -54,7 +54,7 @@ const hero = () => {
             <img 
             src="/spotify.png" 
             alt="spotify" 
-            className="w-6 h-6 md:w-8 md:h-8 cursor-pointer" 
+            className="w-6 h-6 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" 
             />
         </a>
 
@@ -63,7 +63,7 @@ const hero = () => {
             <img 
             src="/Utube.png" 
             alt="youtube" 
-            className="w-6 h-6 md:w-8 md:h-8 cursor-pointer" 
+            className="w-6 h-6 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" 
             />
         </a>
 
@@ -72,7 +72,7 @@ const hero = () => {
             <img 
             src="/ama.png" 
             alt="amazon" 
-            className="w-6 h-6 md:w-8 md:h-8 cursor-pointer" 
+            className="w-6 h-6 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" 
             />
         </a>
     </div>

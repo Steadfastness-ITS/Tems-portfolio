@@ -21,7 +21,7 @@ const LatestRelease = () => {
             <img 
               src="/Image.png" 
               alt="Latest Release"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:scale-108 transition-transform"
             />
           </div>
 
@@ -38,10 +38,18 @@ const LatestRelease = () => {
               </h3>
               
               <div className="flex items-center gap-4">
+              <a href="https://music.apple.com/us/artist/tems/1413909060" target="_blank" rel="noopener noreferrer"> 
                 <img src="/apple.png" alt="Apple" className="w-7 h-7 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" />
+              </a> 
+              <a href="https://open.spotify.com/artist/687cZJR45JO7jhk1LHIbgq?si=2055df23bb2a4246" target="_blank" rel="noopener noreferrer">
                 <img src="/spotify.png" alt="Spotify" className="w-7 h-7 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" />
-                <img src="/Utube.png" alt="YouTube" className="w-6 h-6 md:w-7 md:h-7 cursor-pointer hover:scale-110 transition-transform" />
+              </a>
+              <a href="https://www.youtube.com/channel/UC9zj3cQhXlLZt2sHkKZy1vw" target="_blank" rel="noopener noreferrer">
+                <img src="/Utube.png" alt="YouTube" className="w-7 h-7 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" />
+              </a> 
+              <a href="https://music.amazon.com/artists/B07885YMWB/tems?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_YeiNHBqJ0viCbhAvHpRjXR5Ku" target="_blank" rel="noopener noreferrer">
                 <img src="/ama.png" alt="Amazon" className="w-7 h-7 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" />
+              </a>
               </div>
             </div>
           </div>
