@@ -38,16 +38,16 @@ const LatestRelease = () => {
               </h3>
               
               <div className="flex items-center gap-4">
-              <a href="https://music.apple.com/us/artist/tems/1413909060" target="_blank" rel="noopener noreferrer"> 
+              <a href="https://music.apple.com/us/song/what-you-need-a-colors-show/1882510092" target="_blank" rel="noopener noreferrer"> 
                 <img src="/apple.png" alt="Apple" className="w-7 h-7 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" />
               </a> 
-              <a href="https://open.spotify.com/artist/687cZJR45JO7jhk1LHIbgq?si=2055df23bb2a4246" target="_blank" rel="noopener noreferrer">
+              <a href="https://open.spotify.com/track/3UE6vII3kZabnDYgTbREs6?si=8af01767756a4e1c" target="_blank" rel="noopener noreferrer">
                 <img src="/spotify.png" alt="Spotify" className="w-7 h-7 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" />
               </a>
-              <a href="https://www.youtube.com/channel/UC9zj3cQhXlLZt2sHkKZy1vw" target="_blank" rel="noopener noreferrer">
+              <a href="https://youtu.be/QQaFn8f6ihA?si=EDw6zrje9DbFHNiN" target="_blank" rel="noopener noreferrer">
                 <img src="/Utube.png" alt="YouTube" className="w-7 h-7 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" />
               </a> 
-              <a href="https://music.amazon.com/artists/B07885YMWB/tems?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_YeiNHBqJ0viCbhAvHpRjXR5Ku" target="_blank" rel="noopener noreferrer">
+              <a href="https://music.amazon.com/tracks/B0G2MX32N4?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_sQolseaS9sAzKoHvt6LDOdYEV" target="_blank" rel="noopener noreferrer">
                 <img src="/ama.png" alt="Amazon" className="w-7 h-7 md:w-8 md:h-8 cursor-pointer hover:scale-110 transition-transform" />
               </a>
               </div>
