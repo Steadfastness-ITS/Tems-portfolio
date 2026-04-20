@@ -32,9 +32,14 @@ const Tickets = () => {
         </div>
         
         {/* Button remains as coded */}
-        <button className="px-1 py-1 md:px-8 md:py-3 mt-6 md:mt-0 bg-[#C67E66] text-white  rounded-[10px] md:rounded-full text-[4px] md:text-[12px] tracking-widest mb-2 md:mb-10 hover:bg-[#b06d56] transition-all transform hover:scale-105 active:scale-95 shadow-lg">
+        <a 
+          href="https://open.spotify.com/playlist/6BuIokrjsUNFPH8siI2bCp?si=5V74L-q3QQS2hOvxMSGMSw" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-block text-center px-1 py-1 md:px-8 md:py-3 mt-6 md:mt-0 bg-[#C67E66] text-white rounded-[10px] md:rounded-full text-[4px] md:text-[12px] tracking-widest mb-2 md:mb-10 hover:bg-[#b06d56] transition-all transform hover:scale-105 active:scale-95 shadow-lg"
+        >
           View All Concerts Tickets
-        </button>
+        </a>
 
         {/* 3. FLOATING TICKET CARDS: 
             Retaining the dark, staggered, semi-transparent look from image_0.png
