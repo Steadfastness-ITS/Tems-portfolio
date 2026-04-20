@@ -6,8 +6,8 @@ const Singles = () => {
     { title: "If Orange Was A Place", type: "EP • 2021", image: "/image 34.png" },
     { title: "Me & U", type: "Singles • 2023", image: "/Me & U.png" },
     { title: "Not An Angel", type: "Single • 2023", image: "/Not an Angel.png" },
-    { title: "Try Me", type: "Single • 2019", image: "/Try Me.png" },
-    { title: "Love Me Jeje", type: "Singles • 2024", image: "/Love me Jeje.png" }
+    { title: "Try Me", type: "Single • 2019", image: "/TryMe.png" },
+    { title: "Love Me Jeje", type: "Singles • 2024", image: "/LovemeJeje.png" }
   ]);
 
   // 2. State to track how many items to show based on screen width
