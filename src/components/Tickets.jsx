@@ -13,7 +13,7 @@ const Tickets = () => {
         <img 
           src="/Tics.png" /* Replace with your actual path for Tems portrait */
           alt="Tems Portrait" 
-          className="absolute w-full md:w-auto max-w-[100%] md:max-w-[105%] h-auto md:h-[110%] block md:hidden md:-top-[8%] object-contain brightness-[1.0]"
+          className="absolute w-full md:w-auto max-w-[100%] md:max-w-[105%] h-auto md:h-[110%] md:-top-[8%] object-contain brightness-[1.0]"
         />
       </div>
 
@@ -23,20 +23,20 @@ const Tickets = () => {
         {/* Header Section: Typography Image
             Replacing the <h2> and <p> text tags with image_1.png
         */}
-        <div className="mb-6 md:mb-10 flex justify-center">
+        <div className="mb-5 md:mb-0 flex justify-center">
           <img 
             src="/Tic-text.png" 
             alt="Out in the Wild - Tour Dates"
-            className="w-[33vw] translate-y-8 md:w-auto max-w-[600px] h-auto object-contain"
+            className="w-[35vw] translate-y-8 md:-translate-y-6 md:w-auto max-w-[600px] h-auto object-contain"
           />
         </div>
         
-        {/* Button remains as coded */}
+        {/* Button - Added higher Z-index to be safe */}
         <a 
           href="https://open.spotify.com/playlist/6BuIokrjsUNFPH8siI2bCp?si=5V74L-q3QQS2hOvxMSGMSw" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-block text-center px-1 py-1 md:px-8 md:py-3 mt-6 md:mt-0 bg-[#C67E66] text-white rounded-[10px] md:rounded-full text-[4px] md:text-[12px] tracking-widest mb-2 md:mb-10 hover:bg-[#b06d56] transition-all transform hover:scale-105 active:scale-95 shadow-lg"
+          className="relative z-30 inline-block md:translate-y-8 text-center px-2 py-1 md:px-8 md:py-3 mt-6 md:mt-0 bg-[#C67E66] text-white rounded-[10px] md:rounded-full text-[4px] md:text-[12px] tracking-widest mb-2 md:mb-20 hover:bg-[#b06d56] transition-all transform hover:scale-105 active:scale-95 shadow-lg"
         >
           View All Concerts Tickets
         </a>
