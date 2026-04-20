@@ -44,45 +44,54 @@ const Albums = () => {
         </h2>
       </div>
 
-      {/* 3. Horizontal Carousel - RESTORED ORIGINAL POSITIONING */}
-      <div 
-        className="flex items-center gap-6 md:gap-12 overflow-x-auto pb-6 md:pb-20 no-scrollbar 
-        pl-32 md:pl-95 -mr-8 md:-mr-24" 
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {albumList.map((album, index) => (
-          <div 
-            key={album.image} // Crucial for smooth rotation
-            className={`flex-none group cursor-pointer transition-all duration-700 ease-in-out ${
-              index === 0 
-                ? 'w-[240px] md:w-[400px]' 
-                : 'w-[180px] md:w-[330px] opacity-100 hover:opacity-50'
-            }`}
-          >
-            <div className="relative aspect-square rounded-[2px] overflow-hidden shadow-2xl">
-              <img 
-                src={album.image} 
-                alt={`album cover ${index + 1}`} 
-                className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
-              />
-            </div>
-          </div>
-        ))}
+      {/* 3. Horizontal Carousel */}
+<div 
+  className="flex items-center gap-6 md:gap-12 overflow-x-auto pb-6 md:pb-20 no-scrollbar 
+  pl-32 md:pl-95 -mr-8 md:-mr-24 h-[300px] md:h-[450px]" // Locked height for the whole row
+  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+>
+  {albumList.map((album, index) => (
+    <div 
+      key={album.image} 
+      className={`flex-none group cursor-pointer transition-all duration-700 ease-in-out flex items-center justify-center ${
+        index === 0 
+          ? 'w-[240px] md:w-[400px]' 
+          : 'w-[180px] md:w-[330px] opacity-100 hover:opacity-50'
+      }`}
+    >
+      {/* This container now has a fixed height that matches your largest image (400px).
+          Even when the image inside is smaller (330px), this box stays 400px tall,
+          preventing the section from "jumping."
+      */}
+      <div className="relative aspect-square w-full h-full rounded-[2px] overflow-hidden shadow-2xl flex items-center justify-center">
+        <img 
+          src={album.image} 
+          alt={`album cover ${index + 1}`} 
+          className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
+          loading="eager"
+        />
       </div>
+    </div>
+  ))}
+</div>
 
-      {/* 4. Navigation controls */}
+      {/* 4. Navigation controls - UPDATED WITH CHEVRONS */}
       <div className="flex gap-10 mt-6 md:mt-auto">
         <button 
           onClick={handlePrev}
           className="w-14 h-14 md:w-20 md:h-20 border border-tems-cream/10 rounded-full flex items-center justify-center hover:bg-tems-cream hover:text-tems-brown transition-all group"
         >
-          <span className="text-xl md:text-2xl font-light group-hover:-translate-x-1 transition-transform">←</span>
+          <span className="text-xl md:text-2xl font-light group-hover:-translate-x-1 transition-transform pb-1">
+            &lt;
+          </span>
         </button>
         <button 
           onClick={handleNext}
           className="w-14 h-14 md:w-20 md:h-20 border border-tems-cream/10 rounded-full flex items-center justify-center hover:bg-tems-cream hover:text-tems-brown transition-all group"
         >
-          <span className="text-xl md:text-2xl font-light group-hover:translate-x-1 transition-transform">→</span>
+          <span className="text-xl md:text-2xl font-light group-hover:translate-x-1 transition-transform pb-1">
+            &gt;
+          </span>
         </button>
       </div>
 
