@@ -3,7 +3,7 @@ import React from 'react';
 const Tickets = () => {
 
   return (
-    <section className="relative w-full flex flex-col items-center justify-start py-1 md:py-30 px-6 md:px-6 overflow-hidden">
+    <section id="tour" className="relative w-full flex flex-col items-center justify-start py-1 md:py-30 px-6 md:px-6 overflow-hidden">
       
       {/* 1. LAYER 1: THE SUBJECT IMAGE (Tems Portrait)
           Positioned absolutely to sit *behind* the cards like the UI.

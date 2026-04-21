@@ -55,14 +55,23 @@ const Navbar = () => {
 
         {/* RIGHT SECTION: Merch & Action Button */}
         <div className="flex items-center gap-6 md:gap-12">
-          <a href="#merch" className="hidden md:flex items-center gap-3 text-tems-brown text-[11px] font-bold tracking-[0.15em] hover:opacity-60 transition-opacity">
+          <a href="https://www.amazon.com/stores/TEMS/page/12191104-3E04-4AA5-A248-41B6E7FF0BD0?ref_=cm_sw_r_mwn_sf_stores_6GCFB4Y8Q3YK54NK6QXT" className="hidden md:flex items-center gap-3 text-tems-brown text-[11px] font-bold tracking-[0.15em] hover:opacity-60 transition-opacity"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            
             <span className="w-1.5 h-1.5 bg-tems-brown rounded-full"></span>
             Merch
           </a>
           
-          <button className="bg-tems-green text-tems-cream px-6 py-2.5 md:px-9 md:py-3.5 rounded-full text-[10px] md:text-[11px] font-bold tracking-[0.1em] shadow-lg hover:brightness-110 transition-all active:scale-95">
+          <a 
+            href="https://spotlight.leadingvibe.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARTnHZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacCqlVQJoj60Jn4bgRGSkGMLDI0g5dbgS6nyFkX5KW7bbGBHfgrQy8EYTBHvA_aem_HlGldblPZtHfpp6Awdf7kw" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block bg-tems-green text-tems-cream px-6 py-2.5 md:px-9 md:py-3.5 rounded-full text-[10px] md:text-[11px] font-bold tracking-[0.1em] shadow-lg hover:brightness-110 transition-all active:scale-95 text-center"
+          >
             Stream What You Need
-          </button>
+          </a>
 
           {/* Mobile Menu Toggle */}
           <button 

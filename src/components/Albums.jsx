@@ -26,7 +26,7 @@ const Albums = () => {
   };
 
   return (
-    <section className="w-full h-auto md:min-h-screen bg-tems-brown pt-16 pb-20 md:pt-24 md:pb-32 px-8 md:px-24 text-tems-cream overflow-hidden rounded-t-[20px] flex flex-col">
+    <section id="songs" className="w-full h-auto md:min-h-screen bg-tems-brown pt-16 pb-20 md:pt-24 md:pb-32 px-8 md:px-24 text-tems-cream overflow-hidden rounded-t-[20px] flex flex-col">
       
       {/* 1. Quote area */}
       <div className="w-full flex justify-end mb-16 md:mb-28">
