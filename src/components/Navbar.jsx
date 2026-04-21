@@ -59,7 +59,6 @@ const Navbar = () => {
             target="_blank" 
             rel="noopener noreferrer"
           >
-            
             <span className="w-1.5 h-1.5 bg-tems-brown rounded-full"></span>
             Merch
           </a>
