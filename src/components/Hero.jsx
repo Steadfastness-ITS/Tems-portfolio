@@ -39,7 +39,7 @@ const hero = () => {
         </p>
       </div>
 
-      <div className="absolute bottom-[29%] right-4 md:bottom-35 md:left-20 z-20 flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
+      <div className="absolute bottom-[32%] left-5 md:bottom-35 md:left-20 z-20 flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
         <span className="font-sans text-brand-dark/80 text-[11px] md:text-[18px] font-bold text-tems-brown tracking-tight right-1 md:right-0 font-sans">
           Stream all songs on:
         </span>

@@ -46,7 +46,7 @@ const LatestRelease = () => {
 
           {/* 4. DESCRIPTION & STREAMING: Moved to the bottom right */}
           <div className="w-full md:w-1/4 flex flex-col items-start md:items-start text-left pb-4">
-            <p className="font-sans text-brand-dark/80 text-[14px] md:text-[15px] font-medium text-tems-brown leading-relaxed mb-6 tracking-tight max-w-[280px]">
+            <p className="font-sans text-brand-dark/80 text-[15px] md:text-[15px] font-medium text-tems-brown leading-relaxed mb-6 tracking-tight max-w-[280px]">
               Tems returns to the COLORS stage with a hauntingly intimate and vocal-led 
               performance of <strong className="font-sans text-brand-dark/80 text-tems-brown font-bold">"What You Need."</strong>
             </p>
