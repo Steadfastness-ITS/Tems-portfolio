@@ -5,7 +5,7 @@ const hero = () => {
     <section className="relative w-full flex flex-col items-center bg-tems-cream pt-32 md:pt-40 h-auto md:h-[150vh] overflow-hidden">
       
       {/* 1. background typography: centered behind subject (Updated with separate Raw & Soul image blocks) */}
-      <div className="absolute top-[26%] md:top-[10%] right-4 md:right-0 md:left-0 w-full flex items-center justify-center z-0 pointer-events-none">
+      <div className="absolute top-[22%] md:top-[10%] right-4 md:right-0 md:left-0 w-full flex items-center justify-center z-0 pointer-events-none">
   <div className="flex items-center justify-center gap-[12vw] md:gap-[7vw] w-[85vw] md:w-[90vw] max-w-full">
     
     <h2 className="w-1/2 text-right font-playfair italic text-tems-brown text-[18vw] md:text-[22vw] leading-none font-bold tracking-tight select-none opacity-100">
