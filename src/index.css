@@ -1,40 +1,39 @@
 @import "tailwindcss";
 
-/* 1. Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;600;700&display=swap');
+/* 1. Corrected Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-/* 2. Define Theme Variables (Tailwind v4 Style) */
+/* 2. Theme Mapping (Tailwind v4) */
 @theme {
   --color-tems-cream: #F3F0E9;
   --color-tems-green: #4A533F;
   --color-tems-brown: #2D1B14;
   --color-tems-orange: #C67E66;
 
-  --font-tems-italic: "Cormorant Garamond", serif;
-  --font-sans: "Inter", sans-serif;
-
-  /* Custom Spacing / Shadow for that high-end look */
-  --shadow-tems: 0 30px 100px rgba(0, 0, 0, 0.1);
+  /* Explicitly mapped to the analyzed typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-family: 'PP Editorial Old Italic', serif;
+  --font-family: 'Bodoni Moda', serif;
 }
 
 /* 3. Base Styles */
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
   body {
     background-color: var(--color-tems-cream);
     color: var(--color-tems-brown);
-    font-family: var(--font-sans);
+    font-family: var(--font-tems-sans); /* Fallback baseline */
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
   }
 }
 
-/* 4. Custom Utility for the Editorial Look */
+/* 4. Quick Utility Hooks */
 @layer utilities {
+  .font-tems-display {
+    font-family: var(--font-tems-display);
+  }
   .font-tems-italic {
-    font-family: var(--font-tems-italic);
+    font-family: var(--font-tems-display);
     font-style: italic;
   }
 }

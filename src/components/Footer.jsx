@@ -58,7 +58,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}
-                className="w-8 h-8 md:w-9 md:h-9 bg-tems-brown rounded-full flex items-center justify-center text-tems-cream cursor-pointer hover:scale-110 active:scale-95 transition-transform"
+                className="w-8 h-8 md:w-9 md:h-9 bg-tems-brown rounded-full flex items-center justify-center text-tems-cream cursor-pointer hover:bg-tems-orange active:scale-95 transition-transform"
               >
                 {social.icon}
               </a>
@@ -73,7 +73,7 @@ const Footer = () => {
               className="w-10 md:w-12 mb-4 opacity-80"
             />
             <p className="text-tems-brown text-[10px] md:text-xs font-medium tracking-tight opacity-90 mb-8">
-              Built by Steadfastness
+              Designed by milia_works, Developed by Steady
             </p>
             <p className="text-[9px] md:text-[10px] text-tems-brown/60 font-medium tracking-[0.2em] text-center">
               @2026Leadingvibe / RCA records / Since '93
