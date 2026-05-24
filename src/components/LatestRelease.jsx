@@ -19,7 +19,7 @@ const LatestRelease = () => {
           <div className="hidden md:block w-1/4" />
 
           {/* 3. ALBUM ART: Mathematically centered */}
-          <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[520px] lg:h-[520px] bg-black overflow-hidden rounded-[20px] md:rounded-[30px] shadow-[0_30px_80px_rgba(0,0,0,0.15)] flex-shrink-0 z-10">
+          <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[520px] lg:h-[520px] bg-[#070C12] overflow-hidden rounded-[20px] md:rounded-[30px] shadow-[0_30px_80px_rgba(0,0,0,0.15)] flex-shrink-0 z-10">
   
   {/* LOGO IMAGE */}
   <div className="absolute top-59 md:top-106 left-4 md:left-8 z-20 bg-white w-[48px] md:w-[60px] lg:w-[65px] aspect-square flex flex-col items-center justify-center shadow-lg">

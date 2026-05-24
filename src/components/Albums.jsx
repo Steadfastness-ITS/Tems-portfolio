@@ -7,11 +7,19 @@ const Albums = () => {
     { image: "/Broken E.png", title: "For Broken Ears", year: "Album - 2020" },
   ]);
 
+  const [fadingAlbum, setFadingAlbum] = useState(null);
+
   const handleNext = () => {
+    setFadingAlbum(albumList[0]);
+
     setAlbumList((prev) => {
       const [first, ...rest] = prev;
       return [...rest, first];
     });
+
+    setTimeout(() => {
+      setFadingAlbum(null);
+    }, 650);
   };
 
   const handlePrev = () => {
@@ -28,7 +36,7 @@ const Albums = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [albumList]);
 
   return (
     <section
@@ -52,16 +60,38 @@ const Albums = () => {
 
       {/* HORIZONTAL CAROUSEL */}
       <div
-        className="flex items-center gap-6 md:gap-12 overflow-x-auto pt-1 md:pt-8 pb-6 md:pb-20 no-scrollbar pl-32 md:pl-95 -mr-8 md:-mr-24 h-[300px] md:h-[450px]"
+        className="relative flex items-center gap-6 md:gap-12 overflow-x-auto pt-1 md:pt-8 pb-6 md:pb-20 no-scrollbar pl-32 md:pl-95 -mr-8 md:-mr-24 h-[300px] md:h-[450px]"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
+        {/* FADING FIRST ALBUM CLONE */}
+        {fadingAlbum && (
+          <div className="absolute left-32 md:left-95 top-1 md:top-8 flex-none w-[240px] md:w-[400px] h-[240px] md:h-[400px] z-10 pointer-events-none album-fade-away">
+            <div className="relative aspect-square w-full h-full rounded-[10px] overflow-hidden shadow-2xl flex items-center justify-center">
+              <img
+                src={fadingAlbum.image}
+                alt={fadingAlbum.title}
+                className="w-full h-full object-cover"
+              />
+
+              <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 opacity-100">
+                <p className="font-semibold text-base md:text-lg">
+                  {fadingAlbum.title}
+                </p>
+                <p className="text-xs md:text-sm text-[#9F9F9F] tracking-widest">
+                  {fadingAlbum.year}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {albumList.map((album, index) => (
           <div
             key={album.image}
-            className={`flex-none group cursor-pointer transition-all duration-700 ease-in-out flex items-center justify-center album-slide-item ${
+            className={`flex-none group cursor-pointer transition-all duration-[1600ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center justify-center album-slide-over ${
               index === 0
-                ? "w-[240px] md:w-[400px] album-active"
-                : "w-[180px] md:w-[330px] opacity-100 hover:opacity-50"
+                ? "w-[240px] md:w-[400px] z-40"
+                : "w-[180px] md:w-[330px] opacity-100 hover:opacity-50 z-30"
             }`}
           >
             <div className="relative aspect-square w-full h-full rounded-[10px] overflow-hidden shadow-2xl flex items-center justify-center">
@@ -72,11 +102,7 @@ const Albums = () => {
                 loading="eager"
               />
 
-              <div
-                className={`absolute bottom-4 left-4 md:bottom-6 md:left-6 transition-opacity duration-500 ${
-                  index === 0 ? "opacity-100" : "opacity-0"
-                }`}
-              >
+              <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 transition-opacity duration-500 opacity-100">
                 <p className="font-semibold text-base md:text-lg">
                   {album.title}
                 </p>
@@ -136,43 +162,43 @@ const Albums = () => {
           animation: quoteFadeLeft 1.2s ease-out both;
         }
 
-        @keyframes albumSlideIn {
-  0% {
-    opacity: 0.3;
-    transform: translateX(120px);
-  }
+        @keyframes albumFadeAway {
+          0% {
+            opacity: 1;
+            transform: scale(1);
+          }
 
-  60% {
-    opacity: 1;
-  }
+          35% {
+            opacity: 0.35;
+            transform: scale(0.825);
+          }
 
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+          100% {
+            opacity: 0;
+            transform: scale(0.825);
+          }
+        }
 
-@keyframes albumActiveFade {
-  0% {
-    opacity: 1;
-  }
+        @keyframes albumSlideOver {
+          0% {
+            transform: translateX(110px);
+            opacity: 1;
+          }
 
-  55% {
-    opacity: 0.75;
-  }
+          100% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
 
-  100% {
-    opacity: 1;
-  }
-}
+        .album-fade-away {
+          transform-origin: center center;
+          animation: albumFadeAway 0.65s ease-out both;
+        }
 
-.album-slide-item {
-  animation: albumSlideIn 1.6s cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-
-.album-active {
-  animation: albumActiveFade 1.6s ease-in-out both;
-}
+        .album-slide-over {
+          animation: albumSlideOver 1.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
       `}</style>
     </section>
   );

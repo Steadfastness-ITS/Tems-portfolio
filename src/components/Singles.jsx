@@ -7,122 +7,106 @@ const Singles = () => {
       type: "EP • 2021",
       image: "/image 34.png",
       links: {
-        spotify:
-          "https://open.spotify.com/search/If%20Orange%20Was%20A%20Place%20Tems",
-        apple:
-          "https://music.apple.com/search?term=If%20Orange%20Was%20A%20Place%20Tems",
-        youtube:
-          "https://www.youtube.com/results?search_query=If+Orange+Was+A+Place+Tems",
-        amazon:
-          "https://music.amazon.com/search/If%20Orange%20Was%20A%20Place%20Tems",
+        spotify: "https://open.spotify.com/search/If%20Orange%20Was%20A%20Place%20Tems",
+        apple: "https://music.apple.com/search?term=If%20Orange%20Was%20A%20Place%20Tems",
+        youtube: "https://www.youtube.com/results?search_query=If+Orange+Was+A+Place+Tems",
+        amazon: "https://music.amazon.com/search/If%20Orange%20Was%20A%20Place%20Tems",
       },
     },
-
     {
       title: "Me & U",
       type: "Singles • 2023",
       image: "/Me & U.png",
       links: {
         spotify: "https://open.spotify.com/search/Me%20%26%20U%20Tems",
-        apple:
-          "https://music.apple.com/search?term=Me%20%26%20U%20Tems",
-        youtube:
-          "https://www.youtube.com/results?search_query=Me+and+U+Tems",
-        amazon:
-          "https://music.amazon.com/search/Me%20and%20U%20Tems",
+        apple: "https://music.apple.com/search?term=Me%20%26%20U%20Tems",
+        youtube: "https://www.youtube.com/results?search_query=Me+and+U+Tems",
+        amazon: "https://music.amazon.com/search/Me%20and%20U%20Tems",
       },
     },
-
     {
       title: "Not An Angel",
       type: "Single • 2023",
       image: "/Not an Angel.png",
       links: {
-        spotify:
-          "https://open.spotify.com/search/Not%20An%20Angel%20Tems",
-        apple:
-          "https://music.apple.com/search?term=Not%20An%20Angel%20Tems",
-        youtube:
-          "https://www.youtube.com/results?search_query=Not+An+Angel+Tems",
-        amazon:
-          "https://music.amazon.com/search/Not%20An%20Angel%20Tems",
+        spotify: "https://open.spotify.com/search/Not%20An%20Angel%20Tems",
+        apple: "https://music.apple.com/search?term=Not%20An%20Angel%20Tems",
+        youtube: "https://www.youtube.com/results?search_query=Not+An+Angel+Tems",
+        amazon: "https://music.amazon.com/search/Not%20An%20Angel%20Tems",
       },
     },
-
     {
       title: "Try Me",
       type: "Single • 2019",
       image: "/TryMe.png",
       links: {
-        spotify:
-          "https://open.spotify.com/track/4Ieod2ueT9GEEz9ILN84qP",
-        apple:
-          "https://music.apple.com/us/album/try-me-single/1475114791",
-        youtube:
-          "https://www.youtube.com/watch?v=hVEp-P2-rqY",
-        amazon:
-          "https://music.amazon.com/search/Try%20Me%20Tems",
+        spotify: "https://open.spotify.com/track/4Ieod2ueT9GEEz9ILN84qP",
+        apple: "https://music.apple.com/us/album/try-me-single/1475114791",
+        youtube: "https://www.youtube.com/watch?v=hVEp-P2-rqY",
+        amazon: "https://music.amazon.com/search/Try%20Me%20Tems",
       },
     },
-
     {
       title: "Love Me Jeje",
       type: "Singles • 2024",
       image: "/LovemeJeje.png",
       links: {
-        spotify:
-          "https://open.spotify.com/search/Love%20Me%20Jeje%20Tems",
-        apple:
-          "https://music.apple.com/search?term=Love%20Me%20Jeje%20Tems",
-        youtube:
-          "https://www.youtube.com/results?search_query=Love+Me+Jeje+Tems",
-        amazon:
-          "https://music.amazon.com/search/Love%20Me%20Jeje%20Tems",
+        spotify: "https://open.spotify.com/search/Love%20Me%20Jeje%20Tems",
+        apple: "https://music.apple.com/search?term=Love%20Me%20Jeje%20Tems",
+        youtube: "https://www.youtube.com/results?search_query=Love+Me+Jeje+Tems",
+        amazon: "https://music.amazon.com/search/Love%20Me%20Jeje%20Tems",
       },
     },
   ];
 
   const platforms = [
-    {
-      name: "Spotify",
-      key: "spotify",
-      icon: "/spotify.png",
-    },
-
-    {
-      name: "Apple Music",
-      key: "apple",
-      icon: "/apple.png",
-    },
-
-    {
-      name: "YouTube Music",
-      key: "youtube",
-      icon: "/Utube.png",
-    },
-
-    {
-      name: "Amazon Music",
-      key: "amazon",
-      icon: "/ama.png",
-    },
+    { name: "Spotify", key: "spotify", icon: "/spotify.png" },
+    { name: "Apple Music", key: "apple", icon: "/apple.png" },
+    { name: "YouTube Music", key: "youtube", icon: "/Utube.png" },
+    { name: "Amazon Music", key: "amazon", icon: "/ama.png" },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedRelease, setSelectedRelease] = useState(null);
+  const [isLeftFading, setIsLeftFading] = useState(false);
 
   const pauseAutoScroll = useRef(false);
   const pauseTimeout = useRef(null);
+  const transitionTimeout = useRef(null);
+  const isAnimating = useRef(false);
+
+  const startReleaseTransition = (direction = "next") => {
+  if (isAnimating.current) return;
+
+  isAnimating.current = true;
+  setIsLeftFading(true);
+
+  setActiveIndex((prev) =>
+    direction === "next"
+      ? (prev + 1) % releases.length
+      : (prev - 1 + releases.length) % releases.length
+  );
+
+  clearTimeout(transitionTimeout.current);
+
+  transitionTimeout.current = setTimeout(() => {
+    setIsLeftFading(false);
+    isAnimating.current = false;
+  }, 1200);
+};
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (!pauseAutoScroll.current && !selectedRelease) {
-        setActiveIndex((prev) => (prev + 1) % releases.length);
+        startReleaseTransition("next");
       }
-    }, 4000);
+    }, 5200);
 
-    return () => clearInterval(interval);
-  }, [releases.length, selectedRelease]);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(transitionTimeout.current);
+    };
+  }, [selectedRelease, releases.length]);
 
   const pauseAfterClick = () => {
     pauseAutoScroll.current = true;
@@ -136,43 +120,36 @@ const Singles = () => {
 
   const handleNext = () => {
     pauseAfterClick();
-
-    setActiveIndex(
-      (prev) => (prev + 1) % releases.length
-    );
+    startReleaseTransition("next");
   };
 
   const handlePrev = () => {
     pauseAfterClick();
-
-    setActiveIndex(
-      (prev) => (prev - 1 + releases.length) % releases.length
-    );
+    startReleaseTransition("prev");
   };
 
   const getCardPosition = (index) => {
-    const position =
-      (index - activeIndex + releases.length) %
-      releases.length;
+  const position =
+    (index - activeIndex + releases.length) % releases.length;
 
-    if (position === 0) {
-      return "z-30 opacity-100 translate-x-0 scale-100 brightness-100";
-    }
+  if (position === 0) {
+    return "z-30 opacity-100 translate-x-0 scale-100 brightness-100 duration-[1200ms]";
+  }
 
-    if (position === 1) {
-      return "z-10 opacity-100 translate-x-[280px] md:translate-x-[430px] scale-[0.78] brightness-50 grayscale-[40%]";
-    }
+  if (position === 1) {
+    return "z-10 opacity-100 translate-x-[280px] md:translate-x-[430px] scale-[0.78] brightness-100 grayscale-0 duration-[1200ms]";
+  }
 
-    if (position === releases.length - 1) {
-      return "z-10 opacity-100 -translate-x-[280px] md:-translate-x-[430px] scale-[0.78] brightness-50 grayscale-[40%]";
-    }
+  if (position === releases.length - 1) {
+    return "z-10 opacity-100 -translate-x-[280px] md:-translate-x-[430px] scale-[0.78] brightness-100 grayscale-0 duration-[1200ms]";
+  }
 
-    if (position === 2) {
-      return "z-0 opacity-0 translate-x-[600px] md:translate-x-[800px] scale-[0.78] brightness-50 grayscale-[40%]";
-    }
+  if (position === 2) {
+    return "z-0 opacity-0 translate-x-[600px] md:translate-x-[800px] scale-[0.78] brightness-100 grayscale-0 duration-[1200ms]";
+  }
 
-    return "z-0 opacity-0 -translate-x-[600px] md:-translate-x-[800px] scale-[0.78] brightness-50 grayscale-[40%]";
-  };
+  return "z-0 opacity-0 -translate-x-[600px] md:-translate-x-[800px] scale-[0.78] brightness-100 grayscale-0 duration-[1200ms]";
+};
 
   return (
     <section className="w-full min-h-screen bg-tems-green py-20 md:py-28 px-6 md:px-20 text-tems-cream overflow-hidden">
@@ -197,7 +174,11 @@ const Singles = () => {
         {releases.map((item, index) => (
           <div
             key={item.title}
-            className={`absolute transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${getCardPosition(index)}`}
+            className={`absolute transition-all ease-[cubic-bezier(0.23,1,0.32,1)] ${
+  isLeftFading && index === (activeIndex - 2 + releases.length) % releases.length
+    ? "opacity-0 duration-[1200ms]"
+    : getCardPosition(index)
+}`}
           >
             <div className="group cursor-pointer">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 w-[280px] h-[360px] md:w-[420px] md:h-[520px] hover:scale-[1.02]">
@@ -233,7 +214,9 @@ const Singles = () => {
                 {/* TEXT */}
                 <div
                   className={`absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white transition-opacity duration-500 pointer-events-none ${
-                    index === activeIndex
+                    index === activeIndex ||
+                    index === (activeIndex + 1) % releases.length ||
+                    index === (activeIndex - 1 + releases.length) % releases.length 
                       ? "opacity-100"
                       : "opacity-0"
                   }`}
@@ -251,25 +234,6 @@ const Singles = () => {
           </div>
         ))}
       </div>
-
-      {/* INDICATORS */}
-      {/* <div className="flex justify-center gap-2 mt-8">
-        {releases.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              pauseAfterClick();
-
-              setActiveIndex(index);
-            }}
-            className={`h-1 rounded-full transition-all duration-500 ${
-              index === activeIndex
-                ? "w-8 bg-tems-cream"
-                : "w-2 bg-tems-cream/30"
-            }`}
-          />
-        ))}
-      </div> */}
 
       {/* NAVIGATION */}
       <div className="flex justify-center gap-6 mt-10 md:mt-12">
@@ -302,7 +266,6 @@ const Singles = () => {
             onClick={(e) => e.stopPropagation()}
             className="bg-brand-dark border border-white/10 w-full max-w-lg rounded-[32px] shadow-2xl overflow-hidden flex flex-col max-h-full"
           >
-            {/* HEADER */}
             <div className="flex justify-between items-start p-6 md:px-10 md:py-6 pb-4">
               <div className="pr-4">
                 <p className="text-white/50 tracking-[0.2em] text-[10px] md:text-xs mb-1">
@@ -322,17 +285,12 @@ const Singles = () => {
               </button>
             </div>
 
-            {/* LINKS */}
             <div className="flex-1 overflow-y-auto px-6 md:px-10 pb-2 md:pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <div className="flex flex-col gap-2.5">
                 {platforms.map((platform) => (
                   <a
                     key={platform.key}
-                    href={
-                      selectedRelease.links[
-                        platform.key
-                      ]
-                    }
+                    href={selectedRelease.links[platform.key]}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-3.5 md:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all group"
