@@ -20,11 +20,11 @@ const Navbar = () => {
         {/* LEFT SECTION: Desktop Links & Mobile Logo Image */}
         <div className="flex items-center gap-10">
           <div className="hidden md:flex items-center gap-12">
-            <a href="#songs" className="flex items-center gap-3 text-tems-brown text-[11px] font-bold tracking-[0.03em] hover:text-tems-orange transition-colors duration-300">
+            <a href="#songs" className="flex items-center gap-3 text-tems-brown text-[12px] font-bold tracking-[0.03em] hover:text-tems-orange transition-colors duration-300">
               <span className="font-sans text-brand-dark/80 w-1.5 h-1.5 bg-tems-brown rounded-full"></span>
               Songs
             </a>
-            <a href="#tour" className="flex items-center gap-3 text-tems-brown text-[11px] font-bold tracking-[0.03em] hover:text-tems-orange transition-colors duration-300">
+            <a href="#tour" className="flex items-center gap-3 text-tems-brown text-[12px] font-bold tracking-[0.03em] hover:text-tems-orange transition-colors duration-300">
               <span className="font-sans text-brand-dark/80 w-1.5 h-1.5 bg-tems-brown rounded-full"></span>
               Tour
             </a>
@@ -55,7 +55,7 @@ const Navbar = () => {
 
         {/* RIGHT SECTION: Merch & Action Button */}
         <div className="flex items-center gap-6 md:gap-12">
-          <a href="https://www.amazon.com/stores/TEMS/page/12191104-3E04-4AA5-A248-41B6E7FF0BD0?ref_=cm_sw_r_mwn_sf_stores_6GCFB4Y8Q3YK54NK6QXT" className="hidden md:flex items-center gap-3 text-tems-brown text-[11px] font-bold tracking-[0.03em] hover:text-tems-orange transition-colors duration-300"
+          <a href="https://www.amazon.com/stores/TEMS/page/12191104-3E04-4AA5-A248-41B6E7FF0BD0?ref_=cm_sw_r_mwn_sf_stores_6GCFB4Y8Q3YK54NK6QXT" className="hidden md:flex items-center gap-3 text-tems-brown text-[12px] font-bold tracking-[0.03em] hover:text-tems-orange transition-colors duration-300"
             target="_blank" 
             rel="noopener noreferrer"
           >
