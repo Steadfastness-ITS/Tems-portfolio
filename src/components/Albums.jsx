@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Albums = () => {
   const [albumList, setAlbumList] = useState([
@@ -22,6 +22,14 @@ const Albums = () => {
     });
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="songs"
@@ -29,7 +37,7 @@ const Albums = () => {
     >
       {/* QUOTE AREA */}
       <div className="w-full flex justify-end mb-16 md:mb-28">
-        <p className="max-w-[280px] md:max-w-4xl text-left text-xl md:text-[44px] opacity-90 w-full font-playfair leading-tight md:leading-tight bg-gradient-to-r from-[#F4F0EA] to-[#9A9A9A] bg-clip-text text-transparent">
+        <p className="max-w-[280px] md:max-w-4xl text-left text-xl md:text-[44px] opacity-90 w-full font-playfair leading-tight md:leading-tight bg-gradient-to-r from-[#F4F0EA] to-[#9A9A9A] bg-clip-text text-transparent animate-quote-left">
           ''Authenticity is everything to me. That's the one thing I cannot
           compromise on because that's all I have—who I really am.''
         </p>
@@ -50,9 +58,9 @@ const Albums = () => {
         {albumList.map((album, index) => (
           <div
             key={album.image}
-            className={`flex-none group cursor-pointer transition-all duration-700 ease-in-out flex items-center justify-center ${
+            className={`flex-none group cursor-pointer transition-all duration-700 ease-in-out flex items-center justify-center album-slide-item ${
               index === 0
-                ? "w-[240px] md:w-[400px]"
+                ? "w-[240px] md:w-[400px] album-active"
                 : "w-[180px] md:w-[330px] opacity-100 hover:opacity-50"
             }`}
           >
@@ -111,6 +119,60 @@ const Albums = () => {
           -ms-overflow-style: none;
           scrollbar-width: none;
         }
+
+        @keyframes quoteFadeLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(-45px);
+          }
+
+          100% {
+            opacity: 0.9;
+            transform: translateX(0);
+          }
+        }
+
+        .animate-quote-left {
+          animation: quoteFadeLeft 1.2s ease-out both;
+        }
+
+        @keyframes albumSlideIn {
+  0% {
+    opacity: 0.3;
+    transform: translateX(120px);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes albumActiveFade {
+  0% {
+    opacity: 1;
+  }
+
+  55% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.album-slide-item {
+  animation: albumSlideIn 1.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.album-active {
+  animation: albumActiveFade 1.6s ease-in-out both;
+}
       `}</style>
     </section>
   );
