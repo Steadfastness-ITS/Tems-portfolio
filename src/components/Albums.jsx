@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 const Albums = () => {
   const [albumList, setAlbumList] = useState([
-    { image: "/COVER-2.png", title: "Love Is A Kingdom", year: "Album - 2025" },
+    { image: "/Love in K.png", title: "Love Is A Kingdom", year: "Album - 2025" },
     { image: "/Tics.png", title: "Born In The Wild", year: "Album - 2024" },
-    { image: "/For Broken Hearts.png", title: "For Broken Ears", year: "Album - 2020" },
+    { image: "/Broken E.png", title: "For Broken Ears", year: "Album - 2020" },
   ]);
 
   const handleNext = () => {
@@ -44,7 +44,7 @@ const Albums = () => {
 
       {/* HORIZONTAL CAROUSEL */}
       <div
-        className="flex items-center gap-6 md:gap-12 overflow-x-auto pb-6 md:pb-20 no-scrollbar pl-32 md:pl-95 -mr-8 md:-mr-24 h-[300px] md:h-[450px]"
+        className="flex items-center gap-6 md:gap-12 overflow-x-auto pt-1 md:pt-8 pb-6 md:pb-20 no-scrollbar pl-32 md:pl-95 -mr-8 md:-mr-24 h-[300px] md:h-[450px]"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {albumList.map((album, index) => (
