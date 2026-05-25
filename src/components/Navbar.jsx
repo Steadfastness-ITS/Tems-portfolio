@@ -55,7 +55,7 @@ const Navbar = () => {
 
         {/* RIGHT SECTION: Merch & Action Button */}
         <div className="flex items-center gap-6 md:gap-12">
-          <a href="https://www.amazon.com/stores/TEMS/page/12191104-3E04-4AA5-A248-41B6E7FF0BD0?ref_=cm_sw_r_mwn_sf_stores_6GCFB4Y8Q3YK54NK6QXT" className="hidden md:flex items-center gap-3 text-tems-brown text-[12px] font-bold tracking-[0.03em] hover:text-tems-orange transition-colors duration-300"
+          <a href="https://music.amazon.com/merch/artists/B07885YMWB/tems" className="hidden md:flex items-center gap-3 text-tems-brown text-[12px] font-bold tracking-[0.03em] hover:text-tems-orange transition-colors duration-300"
             target="_blank" 
             rel="noopener noreferrer"
           >

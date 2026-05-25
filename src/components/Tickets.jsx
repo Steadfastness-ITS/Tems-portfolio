@@ -45,7 +45,7 @@ const Tickets = () => {
         </a>
 
         {/* FLOATING TICKET CARDS */}
-<div className="relative w-full mt-0 md:mt-4 max-w-7xl h-[390px] md:h-[720px] mx-auto">
+<div className="relative w-full mt-0 md:mt-4 max-w-7xl h-[390px] md:h-[720px] mx-auto album-bounce">
 
   {/* Card 1 - Right */}
   <div className="absolute right-6 md:right-12 top-[8px] md:top-[140px] z-30 hover:scale-105 transition-transform duration-500">
@@ -133,6 +133,36 @@ const Tickets = () => {
   </div>
 </div>
       </div>
+
+    <style>{`
+          @keyframes subtleAlbumBounce {
+            0% {
+              transform: translateY(0px) scale(1);
+            }
+
+            25% {
+              transform: translateY(-4px) scale(1.002);
+            }
+
+            50% {
+              transform: translateY(0px) scale(1);
+            }
+
+            75% {
+              transform: translateY(3px) scale(0.998);
+            }
+
+            100% {
+              transform: translateY(0px) scale(1);
+            }
+          }
+
+          .album-bounce {
+            transform-style: preserve-3d;
+            animation: subtleAlbumBounce 4s ease-in-out infinite;
+          }
+        `}</style>
+
     </section>
   );
 };
