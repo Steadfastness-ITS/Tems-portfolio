@@ -92,7 +92,7 @@ const Navbar = () => {
         
         <a href="#songs" onClick={() => setIsOpen(false)} className="text-4xl font-playfair italic text-tems-brown hover:text-tems-orange transition-colors duration-300 hover:italic">Songs</a>
         <a href="#tour" onClick={() => setIsOpen(false)} className="text-4xl font-playfair italic text-tems-brown hover:text-tems-orange transition-colors duration-300">Tour</a>
-        <a href="#merch" onClick={() => setIsOpen(false)} className="text-4xl font-playfair italic text-tems-brown hover:text-tems-orange transition-colors duration-300">Merch</a>
+        <a href="https://music.amazon.com/merch/artists/B07885YMWB/tems" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="text-4xl font-playfair italic text-tems-brown hover:text-tems-orange transition-colors duration-300">Merch</a>
         
         <div className="mt-20">
             <img src="/Temslogo.png" alt="TEMS" className="h-12 opacity-95 grayscale" />
