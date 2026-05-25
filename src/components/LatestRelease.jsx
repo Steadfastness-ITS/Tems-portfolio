@@ -16,7 +16,7 @@ const LatestRelease = () => {
           <div className="hidden md:block w-1/4" />
 
           {/* 3. ALBUM ART */}
-          <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[520px] lg:h-[520px] bg-[#070C12] overflow-hidden rounded-[20px] md:rounded-[30px] shadow-[0_30px_80px_rgba(0,0,0,0.15)] flex-shrink-0 z-10 album-tilt">
+          <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[520px] lg:h-[520px] bg-[#070C12] overflow-hidden rounded-[20px] md:rounded-[30px] shadow-[0_30px_80px_rgba(0,0,0,0.15)] flex-shrink-0 z-10 album-bounce">
             {/* LOGO */}
             <div className="absolute top-59 md:top-106 left-4 md:left-8 z-20 bg-white w-[48px] md:w-[60px] lg:w-[65px] aspect-square flex flex-col items-center justify-center shadow-lg">
               <div className="text-black font-bold leading-none text-[10px] md:text-xs tracking-[0.18em] text-center">
@@ -106,23 +106,31 @@ const LatestRelease = () => {
         </div>
 
         <style>{`
-          @keyframes subtleAlbumTilt {
+          @keyframes subtleAlbumBounce {
             0% {
-              transform: rotateX(0deg) rotateZ(0deg);
+              transform: translateY(0px) scale(1);
+            }
+
+            25% {
+              transform: translateY(-4px) scale(1.002);
             }
 
             50% {
-              transform: rotateX(1.2deg) rotateZ(-0.4deg);
+              transform: translateY(0px) scale(1);
+            }
+
+            75% {
+              transform: translateY(3px) scale(0.998);
             }
 
             100% {
-              transform: rotateX(0deg) rotateZ(0deg);
+              transform: translateY(0px) scale(1);
             }
           }
 
-          .album-tilt {
+          .album-bounce {
             transform-style: preserve-3d;
-            animation: subtleAlbumTilt 4s ease-in-out infinite;
+            animation: subtleAlbumBounce 4s ease-in-out infinite;
           }
         `}</style>
       </section>
