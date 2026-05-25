@@ -2,12 +2,53 @@ import React, { useState, useEffect } from "react";
 
 const Albums = () => {
   const [albumList, setAlbumList] = useState([
-    { image: "/Love in K.png", title: "Love Is A Kingdom", year: "Album - 2025" },
-    { image: "/Tics.png", title: "Born In The Wild", year: "Album - 2024" },
-    { image: "/Broken E.png", title: "For Broken Ears", year: "Album - 2020" },
+    {
+      image: "/Love in K.png",
+      title: "Love Is A Kingdom",
+      year: "Album - 2025",
+      release: "2025 Release",
+      links: {
+        spotify: "https://open.spotify.com/album/3aI43F5shWPnoW4KMfxM1c",
+        apple: "https://music.apple.com/us/album/love-is-a-kingdom/1853635930",
+        youtube: "https://www.youtube.com/playlist?list=PLxA687tYuMWjJWbSu10W_pMKsLueq48DL",
+        amazon: "https://music.amazon.com/albums/B0G2MXCB4X",
+      },
+    },
+    {
+      image: "/Tics.png",
+      title: "Born In The Wild",
+      year: "Album - 2024",
+      release: "2024 Release",
+      links: {
+        spotify: "https://open.spotify.com/album/1FGGv0vvSTerGQ91Mkvf9p",
+        apple: "https://music.apple.com/us/album/born-in-the-wild/1750361972",
+        youtube: "https://www.youtube.com/playlist?list=PL9tY0BWXOZFsSxo19SHqK2vQ-y9DEACON",
+        amazon: "https://music.amazon.com/albums/B0D654GLHD",
+      },
+    },
+    {
+      image: "/Broken E.png",
+      title: "For Broken Ears",
+      year: "Album - 2020",
+      release: "2020 Release",
+      links: {
+        spotify: "https://open.spotify.com/album/2sU8ByeYc5BOBFNDr58CGV",
+        apple: "https://music.apple.com/us/album/for-broken-ears/1532252592",
+        youtube: "https://www.youtube.com/playlist?list=PLsAk6h4n-dS2g2qs4DQ9Rjy7bqPFtEyvC",
+        amazon: "https://music.amazon.com/albums/B08JD8LJ69",
+      },
+    },
   ]);
 
+  const albumPlatforms = [
+    { name: "Spotify", key: "spotify", icon: "/spotify.png" },
+    { name: "Apple Music", key: "apple", icon: "/apple.png" },
+    { name: "YouTube Music", key: "youtube", icon: "/Utube.png" },
+    { name: "Amazon Music", key: "amazon", icon: "/ama.png" },
+  ];
+
   const [fadingAlbum, setFadingAlbum] = useState(null);
+  const [selectedAlbum, setSelectedAlbum] = useState(null);
 
   const handleNext = () => {
     setFadingAlbum(albumList[0]);
@@ -32,11 +73,13 @@ const Albums = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      handleNext();
+      if (!selectedAlbum) {
+        handleNext();
+      }
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [albumList]);
+  }, [albumList, selectedAlbum]);
 
   return (
     <section
@@ -60,7 +103,7 @@ const Albums = () => {
 
       {/* HORIZONTAL CAROUSEL */}
       <div
-        className="relative flex items-center gap-6 md:gap-12 overflow-x-auto pt-1 md:pt-8 pb-6 md:pb-20 no-scrollbar pl-32 md:pl-95 -mr-8 md:-mr-24 h-[300px] md:h-[450px]"
+        className="relative flex items-center gap-6 md:gap-12 overflow-x-auto pt-1 md:pt-8 pb-6 md:pb-20 no-scrollbar pl-20 md:pl-95 -mr-8 md:-mr-24 h-[300px] md:h-[450px]"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {/* FADING FIRST ALBUM CLONE */}
@@ -88,6 +131,7 @@ const Albums = () => {
         {albumList.map((album, index) => (
           <div
             key={album.image}
+            onClick={() => setSelectedAlbum(album)}
             className={`flex-none group cursor-pointer transition-all duration-[1600ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center justify-center album-slide-over ${
               index === 0
                 ? "w-[240px] md:w-[400px] z-40"
@@ -136,6 +180,72 @@ const Albums = () => {
         </button>
       </div>
 
+      {/* ALBUM STREAM MODAL */}
+      {selectedAlbum && (
+        <div
+          onClick={() => setSelectedAlbum(null)}
+          className="fixed inset-0 z-[999] bg-black/60 backdrop-blur-md flex items-center justify-center px-4 py-8"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white/10 backdrop-blur-xl border border-white/10 w-full max-w-lg rounded-[32px] shadow-2xl overflow-hidden flex flex-col max-h-full"
+          >
+            <div className="flex justify-between items-start p-6 md:px-10 md:py-6 pb-4">
+              <div className="pr-4">
+                <p className="text-white/50 tracking-[0.2em] text-[10px] md:text-xs mb-1">
+                  {selectedAlbum.release}
+                </p>
+
+                <h3 className="text-2xl md:text-3xl font-playfair italic text-white leading-tight">
+                  {selectedAlbum.title}
+                </h3>
+              </div>
+
+              <button
+                onClick={() => setSelectedAlbum(null)}
+                className="p-2 -mr-2 text-white/40 hover:text-white transition-colors bg-white/5 rounded-full"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-6 md:px-10 pb-2 md:pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <div className="flex flex-col gap-2.5">
+                {albumPlatforms.map((platform) => (
+                  <a
+                    key={platform.key}
+                    href={selectedAlbum.links[platform.key]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3.5 md:p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 transition-all group"
+                  >
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <div className="w-8 h-8 relative shrink-0">
+                        <img
+                          src={platform.icon}
+                          alt={platform.name}
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      </div>
+
+                      <span className="text-white text-sm md:text-base font-medium">
+                        {platform.name}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-widest text-white/40 group-hover:text-white transition-colors">
+                      Play
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="h-6 w-full bg-gradient-to-t from-black/20 to-transparent shrink-0 pointer-events-none"></div>
+          </div>
+        </div>
+      )}
+
       <style jsx global>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;
@@ -169,7 +279,7 @@ const Albums = () => {
           }
 
           35% {
-            opacity: 0.35;
+            opacity: 0.05;
             transform: scale(0.825);
           }
 

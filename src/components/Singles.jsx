@@ -188,9 +188,10 @@ const Singles = () => {
                   className="w-full h-full object-cover"
                 />
 
-                {/* PLAY BUTTON */}
+                {/* CLICKABLE CARD AREA */}
                 <button
                   type="button"
+                  aria-label={`Open ${item.title} streaming options`}
                   onClick={(e) => {
                     e.stopPropagation();
 
@@ -202,12 +203,8 @@ const Singles = () => {
                       setSelectedRelease(item);
                     }
                   }}
-                  className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20"
-                >
-                  <span className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
-                    <span className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[14px] border-l-white border-b-[8px] border-b-transparent ml-1"></span>
-                  </span>
-                </button>
+                  className="absolute inset-0 z-20 bg-transparent cursor-pointer"
+                ></button>
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
 
@@ -309,7 +306,7 @@ const Singles = () => {
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white/30 group-hover:text-white transition-colors">
+                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-widest text-white/30 group-hover:text-white transition-colors">
                       Play
                     </div>
                   </a>
